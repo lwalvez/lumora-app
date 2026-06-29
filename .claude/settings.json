@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "git add -A; if git diff --cached --quiet; then echo 'nothing to commit'; else git commit -q -m \"auto-deploy: $(date '+%F %T')\"; fi; git push -q",
+            "statusMessage": "Auto deploy: commit + push",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}
